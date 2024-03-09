@@ -1,21 +1,20 @@
-def binary_search(arr, x):
-    l, r = 0, len(arr) - 1
-    while l <= r:
-        mid = (l + r) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] < x:
-            l = mid + 1
+if __name__ == '__main__':
+    a = []
+    b = []
+    a.sort()
+    b.sort()
+    
+    i, j = 0, 0
+    ans = 0
+    while i < len(a) or j < len(b):
+        if a[i] < b[j]:
+            i += 1
+            j += 1
+            ans += 1
+        elif a[i] > b[j]:
+            j += 1
         else:
-            r = mid - 1
-    return -1  # 見つからない場合
+            i += 1
 
-a = [12, 43, 7, 15, 9]
-sa = sorted(a)
+    print(ans)
 
-ans = []
-
-for i in range(len(a)):
-    ans.append(binary_search(sa, a[i]))
-
-print(ans)
