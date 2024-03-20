@@ -4,13 +4,13 @@ class Queue(object):
         self.tail = 0
         self.max = size
         self.array = [None]*size
-    
+
     def enqueue(self, data: int) -> None:
         if (self.tail + 1) % self.max == self.head:
             raise Exception('queue is full')
         self.array[self.tail] = data
         self.tail = (self.tail + 1) % self.max
-    
+
     def dequeue(self) -> int:
         if self.head == self.tail:
             raise Exception('queue is empty')
@@ -34,8 +34,3 @@ if __name__ == "__main__":
         print(qu.dequeue())
     except Exception as e:
         print(str(e))
-
-
-
-
-            
